@@ -3,6 +3,11 @@
 
 #### This project is a real-time chat application built with React for the frontend and Express.js for the backend. It allows users to register, log in, and chat with other users in real-time. The frontend provides a user-friendly interface with features such as message input with emoji support, avatar selection, and a contact list to initiate conversations.
 
+### Preview:
+![Login-Page](https://github.com/Marvin02k11/Chat-APP/assets/90615475/57e9d6c6-5f62-4f10-80b3-4c5774be866c)
+
+![Chat-Page](https://github.com/Marvin02k11/Chat-APP/assets/90615475/4ecd5cfb-38b3-45d3-91e6-3ca3e2b511bb)
+
 ### Features:
 - User Authentication: Users can register, log in, and log out securely.
 - Real-Time Messaging: Users can send and receive messages in real-time without refreshing the page.
