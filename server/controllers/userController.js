@@ -58,7 +58,7 @@ const generateResponseFromLLM = async () => {
   });
 };
 
-// const openaiApiKey = "sk-proj-uPGSJ4cmuDSDJIhz4706T3BlbkFJ3vZuF3tEhLZS6BH4nGNf";
+// const openaiApiKey = "";
 // const fetchLLMAPIResponse = async () => {
 //   try {
 //     const response = await axios.post(
