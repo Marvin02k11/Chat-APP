@@ -1,8 +1,8 @@
 const express = require("express");
-const router1 = express.Router();
-const { setUserStatus } = require("../controllers/userController");
+// const router1 = express.Router();
+// const { setUserStatus } = require("../controllers/userController");
 
-router1.post("/setstatus", setUserStatus);
+// router.post("/setstatus", setUserStatus);
 const {
   login,
   register,
@@ -20,4 +20,4 @@ router.post("/setavatar/:id", setAvatar);
 router.get("/logout/:id", logOut);
 
 module.exports = router;
-module.exports = router1;
+// module.exports = router1;

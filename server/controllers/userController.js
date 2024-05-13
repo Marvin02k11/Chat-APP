@@ -1,6 +1,6 @@
 const User = require("../models/userModel");
 const bcrypt = require("bcrypt");
-const axios = require("axios");
+// const axios = require("axios");
 
 module.exports.login = async (req, res, next) => {
   try {
@@ -17,69 +17,45 @@ module.exports.login = async (req, res, next) => {
     next(ex);
   }
 };
-module.exports.setUserStatus = async (req, res, next) => {
-  try {
-    const { userId, status } = req.body;
-    const user = await User.findByIdAndUpdate(
-      userId,
-      { status },
-      { new: true }
-    );
-    return res.json({ status: true, user });
-  } catch (ex) {
-    next(ex);
-  }
-};
-
-module.exports.sendMessage = async (req, res, next) => {
-  try {
-    const { from, to, message } = req.body;
-    const sender = await User.findById(from);
-    const recipient = await User.findById(to);
-    if (!sender || !recipient) {
-      return res.status(404).json({ msg: "Sender or recipient not found" });
-    }
-    if (recipient.status === "BUSY") {
-      const response = await generateResponseFromLLM();
-      return res.json({ msg: response });
-    } else {
-      return res.json({ msg: "User is now available"})
-    }
-  } catch (ex) {
-    next(ex);
-  }
-};
-
-const generateResponseFromLLM = async () => {
-  return new Promise((resolve) => {
-    setTimeout(() => {
-      resolve("Sorry, the user is currently busy.");
-    }, 10000); 
-  });
-};
-
-// const openaiApiKey = "";
-// const fetchLLMAPIResponse = async () => {
+// module.exports.setUserStatus = async (req, res, next) => {
 //   try {
-//     const response = await axios.post(
-//       "https://api.openai.com/v1/completions",
-//       {
-//         model: "text-davinci-003", 
-//         prompt: "Translate the following English text to French: Hello, how are you?",
-//         max_tokens: 50,
-//       },
-//       {
-//         headers: {
-//           "Content-Type": "application/json",
-//           "Authorization": `Bearer ${openaiApiKey}`,
-//         },
-//       }
+//     const { userId, status } = req.body;
+//     const user = await User.findByIdAndUpdate(
+//       userId,
+//       { status },
+//       { new: true }
 //     );
-//     return response.data;
-//   } catch (error) {
-//     console.error("Error fetching response from OpenAI:", error);
-//     return await fetchLLMAPIResponse();
+//     return res.json({ status: true, user });
+//   } catch (ex) {
+//     next(ex);
 //   }
+// };
+
+// module.exports.sendMessage = async (req, res, next) => {
+//   try {
+//     const { from, to, message } = req.body;
+//     const sender = await User.findById(from);
+//     const recipient = await User.findById(to);
+//     if (!sender || !recipient) {
+//       return res.status(404).json({ msg: "Sender or recipient not found" });
+//     }
+//     if (recipient.status === "BUSY") {
+//       const response = await generateResponseFromLLM();
+//       return res.json({ msg: response });
+//     } else {
+//       return res.json({ msg: "User is now available"})
+//     }
+//   } catch (ex) {
+//     next(ex);
+//   }
+// };
+
+// const generateResponseFromLLM = async () => {
+//   return new Promise((resolve) => {
+//     setTimeout(() => {
+//       resolve("Sorry, the user is currently busy.");
+//     }, 10000); 
+//   });
 // };
 
 
